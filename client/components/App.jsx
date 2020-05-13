@@ -1,19 +1,18 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-} from "react-router-dom";
-import PhotoDisplay from "./PhotoDisplay.jsx";
-// import { PhotoCarousel } from "./PhotoCarousel.jsx";
+import { Route, Switch } from "react-router-dom";
+import ImageView from "./ImageView.jsx";
+import Gallery from "./Gallery.jsx";
 
 const App = function () {
   return (
-    <div>
+    <div className="photo-container">
       <Switch>
-        <Route path="/:id" children={<PhotoDisplay />} />
+        <Route exact path="/:id">
+          <Gallery />
+        </Route>
+        <Route path="/:id/image/:photoId">
+          <ImageView />
+        </Route>
       </Switch>
     </div>
   );

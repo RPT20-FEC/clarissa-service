@@ -1,12 +1,17 @@
 import React from "react";
 import ReactDom from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
-import { default as App } from "./components/App.jsx";
-import "../public/style.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import App from "./components/App.jsx";
+import ImageView from "./components/ImageView.jsx";
 
-ReactDom.render(
-  <Router>
-    <App />
-  </Router>,
-  document.getElementById("photo-service")
-);
+const Index = function () {
+  return (
+    <div>
+      <Router>
+        <App />
+      </Router>
+    </div>
+  );
+};
+
+ReactDom.render(<Index />, document.getElementById("photo-service"));
