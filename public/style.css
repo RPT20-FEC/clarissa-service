@@ -1,6 +1,12 @@
-/* body {
+body {
   margin: 0px;
-} */
+}
+
+.photo-container {
+  font-size: 16px;
+  color: #484848;
+  font-family: "Montserrat", sans-serif;
+}
 
 .gallery {
   display: grid;
@@ -11,6 +17,7 @@
     "photo-0 photo-0 photo-1 photo-2"
     "photo-0 photo-0 photo-3 photo-4";
   max-height: 450px;
+  background-color: #484848;
 }
 
 .gallery img {
@@ -22,7 +29,7 @@
 }
 
 .gallery:hover img {
-  opacity: 0.4;
+  opacity: 0.6;
   transition: opacity 500ms;
 }
 
@@ -63,13 +70,14 @@
 
 .slideshow {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   gap: 1px 3px;
   grid-template-areas:
-    "main-image main-image main-image sidebar"
-    "main-image main-image main-image sidebar";
+    "main-image main-image main-image main-image main-image sidebar sidebar"
+    "main-image main-image main-image main-image main-image sidebar sidebar";
   max-height: 450px;
+  padding: 64px;
 }
 
 .slideshow img {
@@ -89,6 +97,12 @@
   transition: opacity 150ms ease-in-out 0s, transform 150ms ease-in-out 0s;
 }
 
+.slideshow .material-icons {
+  font-size: 50px;
+  font-weight: 100;
+  color: #8e8c8c;
+}
+
 .slideshow .main-image {
   grid-area: main-image;
   overflow: hidden;
@@ -100,7 +114,17 @@
   justify-content: center;
 }
 
+.sidebar-link {
+  position: absolute;
+  right: 4rem;
+}
+
 .sidebar {
   grid-area: sidebar;
   overflow: hidden;
+  padding: 2rem 4rem;
+}
+
+.sidebar .counter {
+  font-weight: 600;
 }

@@ -8,24 +8,29 @@ const ImageView = function () {
   let { id, photoId } = useParams();
   const photos = useFetchPhotos(id);
 
+  const nextImage = function () {};
+
   return (
     <div className="slideshow">
       {photos.map((photo, index) => {
         return (
           photo._id === photoId && (
-            <React.Fragment>
+            <React.Fragment key={photo._id}>
               <div className="main-image">
-                <button>
-                  <i class="material-icons">keyboard_arrow_left</i>
-                </button>
+                <Link to={`/${id}/image/${photo._id}`}>
+                  <i className="material-icons">keyboard_arrow_left</i>
+                </Link>
                 <img key={photo._id} src={photo.url} alt={photo.description} />
-                <button>
-                  <i class="material-icons">keyboard_arrow_right</i>
-                </button>
+                <Link to={`/${id}/image/${photo._id}`}>
+                  <i className="material-icons">keyboard_arrow_right</i>
+                </Link>
               </div>
               <div className="sidebar">
-                <p>
-                  {index + 1}/{photos.length + 1}
+                <Link to={`/${id}/`} className="sidebar-link">
+                  <i className="material-icons">close</i>
+                </Link>
+                <p className="counter">
+                  {index + 1} / {photos.length + 1}
                 </p>
                 <p>{photo.description}</p>
               </div>
