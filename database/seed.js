@@ -10,24 +10,29 @@ const insertSeedData = function () {
       listingId: 1000 + i,
       assets: [
         {
-          url: "https://images.unsplash.com/photo-1568941159284-3b299541ee63",
+          url:
+            "https://images.unsplash.com/photo-1559767949-0faa5c7e9992?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
           description: "Lovely four bedroom, farmhouse home",
         },
         {
-          url: "https://images.unsplash.com/photo-1517162418377-ff38a5961ca6",
+          url:
+            "https://images.unsplash.com/photo-1484301548518-d0e0a5db0fc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
           description: "Outdoor patio",
         },
         {
-          url: "https://images.unsplash.com/photo-1529423374493-8b2f78fd2437",
-          description: "Fully stocked kitchen",
+          url:
+            "https://images.unsplash.com/photo-1524360526339-9ad59a9f7f8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+          description: "House Cat",
         },
         {
-          url: "https://images.unsplash.com/photo-1545042745-e67d687dac2c",
-          description: "Relax in nature",
+          url:
+            "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80",
+          description: "Four, cozy bedrooms",
         },
         {
-          url: "https://images.unsplash.com/photo-1580862842845-5aa6f6438329",
-          description: "Four bedrooms",
+          url:
+            "https://images.unsplash.com/photo-1542853647-47ad77242390?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+          description: "Views of the lake",
         },
       ],
     };
