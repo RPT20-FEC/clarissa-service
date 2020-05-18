@@ -17,7 +17,7 @@ const useFetchPhotos = (id) => {
       );
   }, []);
 
-  return photos;
+  return { photos, error };
 };
 
 export default useFetchPhotos;
