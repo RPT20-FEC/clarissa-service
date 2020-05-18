@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Gallery from "./Gallery.jsx";
-import App from "./App.jsx";
 import useFetchPhotos from "../utils/useFetchPhotos.js";
 
 const ImageView = function () {
   let { id, photoId } = useParams();
-  const photos = useFetchPhotos(id);
+  const photos = useFetchPhotos(id).photos;
 
   return (
     <div className="slideshow">

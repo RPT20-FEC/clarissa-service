@@ -1,18 +1,10 @@
 import React, { useState, useEffect, Component } from "react";
-import {
-  Route,
-  useParams,
-  Link,
-  withRouter,
-  useRouteMatch,
-} from "react-router-dom";
-import App from "./App.jsx";
-import ImageView from "./ImageView.jsx";
+import { Route, useParams, Link } from "react-router-dom";
 import useFetchPhotos from "../utils/useFetchPhotos.js";
 
 const Gallery = function () {
   let { id } = useParams();
-  const photos = useFetchPhotos(id);
+  const photos = useFetchPhotos(id).photos;
 
   return (
     <div className="gallery">
@@ -27,7 +19,7 @@ const Gallery = function () {
           );
         })
       ) : (
-        <div>No photos</div>
+        <div className="no-photos-message">No photos</div>
       )}
     </div>
   );
