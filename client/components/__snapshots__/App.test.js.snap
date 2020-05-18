@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`when it renders should match the snapshot 1`] = `
+<div
+  className="photo-container"
+>
+  <BrowserRouter>
+    <Switch>
+      <Route
+        exact={true}
+        path="/:id"
+      >
+        <Gallery />
+      </Route>
+      <Route
+        path="/:id/image/:photoId"
+      >
+        <ImageView />
+      </Route>
+      <Route
+        path="/"
+        render={[Function]}
+      />
+    </Switch>
+  </BrowserRouter>
+</div>
+`;
