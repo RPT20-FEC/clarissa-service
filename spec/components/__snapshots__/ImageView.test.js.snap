@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Gallery component renders correctly 1`] = `
+exports[`ImageView component renders correctly 1`] = `
 <Router
   history={
     Object {
@@ -11,8 +11,15 @@ exports[`Gallery component renders correctly 1`] = `
       "entries": Array [
         Object {
           "hash": "",
-          "key": "3cd8jx",
+          "key": "85vqxb",
           "pathname": "/1004/",
+          "search": "",
+          "state": undefined,
+        },
+        Object {
+          "hash": "",
+          "key": "rjs21j",
+          "pathname": "123213",
           "search": "",
           "state": undefined,
         },
@@ -21,11 +28,11 @@ exports[`Gallery component renders correctly 1`] = `
       "goBack": [Function],
       "goForward": [Function],
       "index": 0,
-      "length": 1,
+      "length": 2,
       "listen": [Function],
       "location": Object {
         "hash": "",
-        "key": "3cd8jx",
+        "key": "85vqxb",
         "pathname": "/1004/",
         "search": "",
         "state": undefined,
@@ -36,9 +43,9 @@ exports[`Gallery component renders correctly 1`] = `
   }
 >
   <Route
-    path="/:id/"
+    path="/:id/image/:photoId"
   >
-    <Gallery />
+    <ImageView />
   </Route>
 </Router>
 `;

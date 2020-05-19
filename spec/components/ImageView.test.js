@@ -3,10 +3,10 @@ import ReactDOM from "react-dom";
 import { shallow, mount } from "enzyme";
 import { render, unmountComponentAtNode } from "react-dom";
 import { Route, MemoryRouter, useParams } from "react-router-dom";
-import Gallery from "./gallery";
-import renderStrict from "../utils/renderStrict.js";
+import ImageView from "../../client/components/ImageView";
+import renderStrict from "../../client/utils/renderStrict.js";
 
-describe("Gallery renders the correct path", () => {
+describe("ImageView renders the correct path", () => {
   const node = document.createElement("div");
 
   afterEach(() => {
@@ -17,7 +17,7 @@ describe("Gallery renders the correct path", () => {
     it("returns an empty hash", () => {
       let params;
 
-      const Gallery = () => {
+      const ImageView = () => {
         params = useParams();
         return null;
       };
@@ -25,7 +25,7 @@ describe("Gallery renders the correct path", () => {
       renderStrict(
         <MemoryRouter initialEntries={[""]}>
           <Route path="">
-            <Gallery />
+            <ImageView />
           </Route>
         </MemoryRouter>,
         node
@@ -40,15 +40,15 @@ describe("Gallery renders the correct path", () => {
     it("returns a hash of the URL params and their values", () => {
       let params;
 
-      const Gallery = () => {
+      const ImageView = () => {
         params = useParams();
         return null;
       };
 
       renderStrict(
-        <MemoryRouter initialEntries={["/1004/"]}>
-          <Route path="/:id/">
-            <Gallery />
+        <MemoryRouter initialEntries={["/1004/image/123213"]}>
+          <Route path="/:id/image/:photoId">
+            <ImageView />
           </Route>
         </MemoryRouter>,
         node
@@ -57,23 +57,24 @@ describe("Gallery renders the correct path", () => {
       expect(typeof params).toBe("object");
       expect(params).toMatchObject({
         id: "1004",
+        photoId: "123213",
       });
     });
   });
 });
 
-describe("Gallery component", function () {
+describe("ImageView component", function () {
   let wrapper = shallow(
-    <MemoryRouter initialEntries={["/1004/"]}>
-      <Route path="/:id/">
-        <Gallery />
+    <MemoryRouter initialEntries={["/1004/", "123213"]}>
+      <Route path="/:id/image/:photoId">
+        <ImageView />
       </Route>
     </MemoryRouter>
   );
 
   it("should render all elements correctly without throwing an error", function () {
     expect(wrapper.exists()).toBe(true);
-    expect(wrapper.find("Gallery").length).toBe(1);
+    expect(wrapper.find("ImageView").length).toBe(1);
   });
 
   it("renders correctly", () => {
