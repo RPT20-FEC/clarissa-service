@@ -7,9 +7,7 @@ const useFetchPhotos = (id) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:5000/listings/${id}/photos`
-        );
+        const response = await axios.get(`/listings/${id}/photos`);
         if (response.status === 200) {
           setPhotos(response.data);
         }

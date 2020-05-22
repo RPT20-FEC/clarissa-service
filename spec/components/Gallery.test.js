@@ -1,20 +1,20 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { shallow, mount } from "enzyme";
-import { render, unmountComponentAtNode } from "react-dom";
-import { Route, MemoryRouter, useParams } from "react-router-dom";
-import Gallery from "../../client/components/gallery";
-import renderStrict from "../../client/utils/renderStrict.js";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { shallow, mount } from 'enzyme';
+import { render, unmountComponentAtNode } from 'react-dom';
+import { Route, MemoryRouter, useParams } from 'react-router-dom';
+import Gallery from '../../client/components/gallery';
+import renderStrict from '../../client/utils/renderStrict.js';
 
-describe("Gallery renders the correct path", () => {
-  const node = document.createElement("div");
+describe('Gallery renders the correct path', () => {
+  const node = document.createElement('div');
 
   afterEach(() => {
     ReactDOM.unmountComponentAtNode(node);
   });
 
-  describe("when the path has no params", () => {
-    it("returns an empty hash", () => {
+  describe('when the path has no params', () => {
+    it('returns an empty hash', () => {
       let params;
 
       const Gallery = () => {
@@ -23,7 +23,7 @@ describe("Gallery renders the correct path", () => {
       };
 
       renderStrict(
-        <MemoryRouter initialEntries={[""]}>
+        <MemoryRouter initialEntries={['']}>
           <Route path="">
             <Gallery />
           </Route>
@@ -31,13 +31,13 @@ describe("Gallery renders the correct path", () => {
         node
       );
 
-      expect(typeof params).toBe("object");
+      expect(typeof params).toBe('object');
       expect(Object.keys(params)).toHaveLength(0);
     });
   });
 
-  describe("when the path has some params", () => {
-    it("returns a hash of the URL params and their values", () => {
+  describe('when the path has some params', () => {
+    it('returns a hash of the URL params and their values', () => {
       let params;
 
       const Gallery = () => {
@@ -46,7 +46,7 @@ describe("Gallery renders the correct path", () => {
       };
 
       renderStrict(
-        <MemoryRouter initialEntries={["/1004/"]}>
+        <MemoryRouter initialEntries={['/1004/']}>
           <Route path="/:id/">
             <Gallery />
           </Route>
@@ -54,29 +54,29 @@ describe("Gallery renders the correct path", () => {
         node
       );
 
-      expect(typeof params).toBe("object");
+      expect(typeof params).toBe('object');
       expect(params).toMatchObject({
-        id: "1004",
+        id: '1004',
       });
     });
   });
 });
 
-describe("Gallery component", function () {
+describe('Gallery component', function () {
   let wrapper = shallow(
-    <MemoryRouter initialEntries={["/1004/"]}>
+    <MemoryRouter initialEntries={['/1004/']}>
       <Route path="/:id/">
         <Gallery />
       </Route>
     </MemoryRouter>
   );
 
-  it("should render all elements correctly without throwing an error", function () {
+  it('should render all elements correctly without throwing an error', function () {
     expect(wrapper.exists()).toBe(true);
-    expect(wrapper.find("Gallery").length).toBe(1);
+    expect(wrapper.find('Gallery').length).toBe(1);
   });
 
-  it("renders correctly", () => {
+  it('renders correctly', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });
