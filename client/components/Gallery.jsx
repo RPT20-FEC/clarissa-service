@@ -1,6 +1,6 @@
-import React, { useState, useEffect, Component } from "react";
-import { Route, useParams, Link } from "react-router-dom";
-import useFetchPhotos from "../utils/useFetchPhotos.js";
+import React, { useState, useEffect, Component } from 'react';
+import { Route, useParams, Link } from 'react-router-dom';
+import useFetchPhotos from '../utils/useFetchPhotos.js';
 
 const Gallery = function () {
   let { id } = useParams();

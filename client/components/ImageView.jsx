@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import Gallery from "./Gallery.jsx";
-import useFetchPhotos from "../utils/useFetchPhotos.js";
+import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import Gallery from './Gallery.jsx';
+import useFetchPhotos from '../utils/useFetchPhotos.js';
 
 const ImageView = function () {
   let { id, photoId } = useParams();
