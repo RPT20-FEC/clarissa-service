@@ -2,7 +2,9 @@ const express = require("express");
 const Listing = require("../database/Listing");
 const app = express();
 const path = require("path");
+const compression = require("compression");
 
+app.use(compression());
 app.use(express.static(__dirname + "/../public"));
 
 app.use((req, res, next) => {
