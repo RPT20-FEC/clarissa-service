@@ -12,7 +12,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 1px 3px;
   grid-template-areas:
     "photo-0 photo-0 photo-1 photo-2"
     "photo-0 photo-0 photo-3 photo-4";
