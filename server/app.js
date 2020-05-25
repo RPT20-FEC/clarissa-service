@@ -14,17 +14,6 @@ app.use(
   })
 );
 
-// app.get(
-//   "*",
-//   expressStaticGzip(path.join(__dirname), {
-//     urlContains: "public",
-//     fallthrough: false,
-//     enableBrotli: true,
-//   })
-// );
-
-// app.use(express.static(__dirname + "/../public"));
-
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
