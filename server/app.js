@@ -23,20 +23,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/bundle.js', function (req, res) {
-  if (req.header('Accept-Encoding').includes(br)) {
-    res.set('Content-Encoding', 'br')
-    res.set('Content-Type', 'application/javascript')
-    res.sendFile(join(__dirname, 'public', bundle.js.br))
-  } else if (req.header('Accept-Encoding').includes(gz)) {
-      res.set('Content-Encoding', 'gzip')
-      res.set('Content-Type', 'application/javascript')
-      res.sendFile(join(__dirname, 'public', bundle.js.gz))
-  } else {
-      res.sendFile(join(__dirname, 'public', bundle.js))
-  }
-}
-
 app.get("/listings/", function (req, res) {
   Listing.find(function (err, listings) {
     if (err) {
