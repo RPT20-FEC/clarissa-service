@@ -3,9 +3,16 @@ const Listing = require("../database/Listing");
 const app = express();
 const path = require("path");
 const compression = require("compression");
+const expressStaticGzip = require("express-static-gzip");
 
 app.use(compression());
-app.use(express.static(__dirname + "/../public"));
+
+app.use(
+  "/",
+  expressStaticGzip(path.join(__dirname + "/../public"), {
+    enableBrotli: true,
+  })
+);
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
