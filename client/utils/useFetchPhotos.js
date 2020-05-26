@@ -7,22 +7,23 @@ const useFetchPhotos = (id) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
+
       try {
-        setIsLoading(true);
         const response = await axios.get(
           `http://18.144.125.169/listings/${id}/photos`
         );
         if (response.status === 200) {
           setPhotos(response.data);
-          setIsLoading(false);
         }
       } catch (error) {
         throw error;
       }
+      setIsLoading(false);
     };
     fetchData();
   }, []);
-  return [{ photos, isLoading }];
+  return { photos, isLoading };
 };
 
 export default useFetchPhotos;

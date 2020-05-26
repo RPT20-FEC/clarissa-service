@@ -5,7 +5,7 @@ import useFetchPhotos from "../utils/useFetchPhotos.js";
 
 const ImageView = function () {
   let { id, photoId } = useParams();
-  const [{ photos, isLoading }] = useFetchPhotos(id);
+  const { photos, isLoading } = useFetchPhotos(id);
 
   return (
     <div className="slideshow">

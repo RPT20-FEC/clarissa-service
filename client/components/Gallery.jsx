@@ -4,7 +4,7 @@ import useFetchPhotos from "../utils/useFetchPhotos.js";
 
 const Gallery = function () {
   let { id } = useParams();
-  const [{ photos, isLoading }] = useFetchPhotos(id);
+  const { photos, isLoading } = useFetchPhotos(id);
 
   return (
     <div className="gallery">
