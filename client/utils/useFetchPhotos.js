@@ -7,8 +7,8 @@ const useFetchPhotos = (id) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true);
       try {
+        setIsLoading(true);
         const response = await axios.get(
           `http://18.144.125.169/listings/${id}/photos`
         );
@@ -22,7 +22,7 @@ const useFetchPhotos = (id) => {
     };
     fetchData();
   }, []);
-  return { photos };
+  return { photos, isLoading };
 };
 
 export default useFetchPhotos;
