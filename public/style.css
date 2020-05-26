@@ -2,7 +2,7 @@ body {
   margin: 0px;
 }
 
-.photo-service {
+#photo-service {
   display: block;
   min-height: 425px;
 }
