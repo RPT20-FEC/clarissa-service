@@ -35,7 +35,7 @@ const ImageView = function () {
                 )}
               </div>
               <div className="sidebar">
-                <Link to={`/${id}/`} className="sidebar-link">
+                <Link to={`/${id}`} className="sidebar-link">
                   <i className="material-icons">close</i>
                 </Link>
                 <p className="counter">
