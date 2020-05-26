@@ -2,11 +2,17 @@ body {
   margin: 0px;
 }
 
+.photo-service {
+  display: block;
+  min-height: 425px;
+}
+
 .photo-container {
   font-size: 16px;
   color: #484848;
   font-family: "Montserrat", sans-serif;
   margin-top: 2rem;
+  position: relative;
 }
 
 .fade-enter {
@@ -17,14 +23,6 @@ body {
 .fade-enter.fade-enter-active {
   opacity: 1;
   transition: opacity 300ms ease-in;
-}
-
-.gallery,
-.slideshow {
-  position: absolute;
-  top: 100px;
-  left: 0;
-  right: 0;
 }
 
 .fade-appear,
@@ -66,6 +64,13 @@ body {
   animation: loading-state-animation 5s ease;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
+}
+
+.gallery,
+.slideshow {
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 @keyframes loading-state-animation {
