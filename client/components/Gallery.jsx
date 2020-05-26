@@ -7,20 +7,22 @@ const Gallery = function () {
   const { photos, isLoading } = useFetchPhotos(id);
 
   return (
-    <div className="gallery">
-      {!isLoading ? (
-        photos.map((photo, index) => {
-          return (
-            <div key={photo._id} className={`photo-${index}`}>
-              <Link to={`/${id}/image/${photo._id}`}>
-                <img src={photo.url} alt={photo.description} />
-              </Link>
-            </div>
-          );
-        })
-      ) : (
-        <div className="loading-state"></div>
-      )}
+    <div className="transition-container">
+      <div className="gallery">
+        {!isLoading ? (
+          photos.map((photo, index) => {
+            return (
+              <div key={photo._id} className={`photo-${index}`}>
+                <Link to={`/${id}/image/${photo._id}`}>
+                  <img src={photo.url} alt={photo.description} />
+                </Link>
+              </div>
+            );
+          })
+        ) : (
+          <div className="loading-state"></div>
+        )}
+      </div>
     </div>
   );
 };
