@@ -1,14 +1,15 @@
-import React, { useState, useEffect, Component } from 'react';
-import { Route, useParams, Link } from 'react-router-dom';
-import useFetchPhotos from '../utils/useFetchPhotos.js';
+import React, { useState, useEffect, Component } from "react";
+import { Route, useParams, Link } from "react-router-dom";
+import useFetchPhotos from "../utils/useFetchPhotos.js";
 
 const Gallery = function () {
   let { id } = useParams();
   const photos = useFetchPhotos(id).photos;
+  const isLoading = useFetchPhotos(id).isLoading;
 
   return (
     <div className="gallery">
-      {photos.length > 0 ? (
+      {!isLoading ? (
         photos.map((photo, index) => {
           return (
             <div key={photo._id} className={`photo-${index}`}>
@@ -19,7 +20,7 @@ const Gallery = function () {
           );
         })
       ) : (
-        <div className="no-photos-message">No photos</div>
+        <div className="loading-state"></div>
       )}
     </div>
   );

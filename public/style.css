@@ -17,7 +17,30 @@ body {
     "photo-0 photo-0 photo-1 photo-2"
     "photo-0 photo-0 photo-3 photo-4";
   max-height: 450px;
-  background-color: #484848;
+}
+
+.gallery .loading-state {
+  min-height: 400px;
+  background-color: #ddd;
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  animation: loading-state-animation 5s ease;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes loading-state-animation {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 .gallery img {
@@ -45,26 +68,30 @@ body {
 
 .photo-0 {
   grid-area: photo-0;
-  overflow: hidden;
 }
 
 .photo-1 {
   grid-area: photo-1;
-  overflow: hidden;
 }
 
 .photo-2 {
   grid-area: photo-2;
-  overflow: hidden;
 }
 
 .photo-3 {
   grid-area: photo-3;
-  overflow: hidden;
 }
 
 .photo-4 {
   grid-area: photo-4;
+}
+
+.photo-0,
+.photo-1,
+.photo-2,
+.photo-3,
+.photo-4 {
+  background-color: #484848;
   overflow: hidden;
 }
 
