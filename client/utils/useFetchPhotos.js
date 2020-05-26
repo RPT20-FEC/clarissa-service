@@ -22,7 +22,7 @@ const useFetchPhotos = (id) => {
     };
     fetchData();
   }, []);
-  return { photos, isLoading };
+  return [{ photos, isLoading }];
 };
 
 export default useFetchPhotos;
