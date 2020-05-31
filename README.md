@@ -1,4 +1,4 @@
-# Project Name
+# Photo Service
 
 > This is a part of an Airbnb clone project. This photo service displays the property images. 
 
