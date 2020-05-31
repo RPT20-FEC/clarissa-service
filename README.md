@@ -14,8 +14,8 @@
 
 ## Usage
 
-> Use `npm start` to start the server
-> `npm run tests` to run the tests
+- Use `npm start` to start the server
+- `npm run tests` to run the tests
 
 ## Requirements
 
