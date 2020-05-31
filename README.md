@@ -1,13 +1,10 @@
 # Project Name
 
-> Project description
+> This is a part of an Airbnb clone project. This photo service displays the property images. 
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/RPT20-FEC
 
 ## Table of Contents
 
@@ -17,14 +14,15 @@
 
 ## Usage
 
-> Some usage instructions
+> Use `npm start` to start the server
+> `npm run tests` to run the tests
 
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
-- Node 6.13.0
-- etc
+- Node 12.16.2
+- MongoDB
 
 ## Development
 
