@@ -1,6 +1,5 @@
 const app = require("./app");
-const { models } = require("../database/models");
-const { sequelize } = require("../database/models");
+const { sequelize, models } = require("./database/models");
 require("dotenv").config();
 
 const eraseDatabaseOnSync = true;

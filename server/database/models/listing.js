@@ -13,5 +13,13 @@ module.exports = (sequelize, DataTypes) => {
     Listing.hasMany(models.Asset, { onDelete: "CASCADE" });
   };
 
+  Listing.findByListingId = async (id) => {
+    let listing = await Listing.findOne({
+      where: { listingId: id },
+    });
+
+    return listing;
+  };
+
   return Listing;
 };
