@@ -8,10 +8,10 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
+    assets: {
+      type: DataTypes.JSON,
+    },
   });
-  Listing.associate = (models) => {
-    Listing.hasMany(models.Asset, { onDelete: "CASCADE" });
-  };
 
   Listing.findByListingId = async (id) => {
     let listing = await Listing.findOne({

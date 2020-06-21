@@ -12,7 +12,6 @@ const sequelize = new Sequelize(
 
 const models = {
   Listing: sequelize.import("./listing"),
-  Asset: sequelize.import("./asset"),
 };
 
 Object.keys(models).forEach((key) => {

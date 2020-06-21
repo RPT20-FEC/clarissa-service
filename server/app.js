@@ -32,14 +32,7 @@ app.use(bodyParser.json());
 
 app.get("/listings", async (req, res) => {
   try {
-    const listings = await models.Listing.findAll({
-      include: [
-        {
-          model: models.Asset,
-          as: "assets",
-        },
-      ],
-    });
+    const listings = await models.Listing.findAll();
     return res.status(200).json({ listings });
   } catch (error) {
     return res.status(500).send(error.message);
@@ -68,12 +61,6 @@ app.get("/listings/:id", async (req, res) => {
     console.log(req.params.id);
     const listing = await models.Listing.findOne({
       where: { listingId: req.params.id },
-      include: [
-        {
-          model: models.Asset,
-          as: "assets",
-        },
-      ],
     });
     if (listing) {
       return res.status(200).json({ listing });
