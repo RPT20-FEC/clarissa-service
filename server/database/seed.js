@@ -119,29 +119,29 @@ const randomPropertyAssets = function () {
   return propertyAssets[Math.floor(Math.random() * Math.floor(4))];
 };
 
-const generateSeedData = function () {
-  for (var i = 1; i < 7; i++) {
-    writer.pipe(fs.createWriteStream(`data${i}.csv`));
+// const generateSeedData = function () {
+//   for (var i = 1; i < 7; i++) {
+//     writer.pipe(fs.createWriteStream(`data${i}.csv`));
 
-    for (var j = 0; j < 150; j++) {
-      writer.write({
-        listingId: 1000 + j,
-        assets: randomPropertyAssets(),
-      });
-    }
+//     for (var j = 0; j < 150; j++) {
+//       writer.write({
+//         listingId: 1000 + j,
+//         assets: randomPropertyAssets(),
+//       });
+//     }
 
-    sequelize.query(
-      `\COPY listings (listingId, assets) FROM '/Users/clarissajaime/Workspace/hack-reactor/capstone-projects/photo-service/data${i}.csv' DELIMITER ',' CSV HEADER;`,
-      (error, data) => {
-        if (error) {
-          return console.error(error);
-        }
-        console.log("successfully seeded the db");
-      }
-    );
-  }
-  writer.end();
-};
+//     sequelize.query(
+//       `\COPY sdc_listings (listingId, assets) FROM '/Users/clarissajaime/Workspace/hack-reactor/capstone-projects/photo-service/data${i}.csv' DELIMITER ',' CSV HEADER;`,
+//       (error, data) => {
+//         if (error) {
+//           return console.error(error);
+//         }
+//         console.log("successfully seeded the db");
+//       }
+//     );
+//   }
+//   writer.end();
+// };
 
 // const eraseDatabaseOnSync = true;
 

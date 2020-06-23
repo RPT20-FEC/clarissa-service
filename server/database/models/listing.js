@@ -1,17 +1,24 @@
 module.exports = (sequelize, DataTypes) => {
-  const Listing = sequelize.define("listing", {
-    listingId: {
-      type: DataTypes.INTEGER,
-      unique: true,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
+  const Listing = sequelize.define(
+    "listing",
+    {
+      listingId: {
+        type: DataTypes.INTEGER,
+        unique: true,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
+      },
+      assets: {
+        type: DataTypes.JSON,
       },
     },
-    assets: {
-      type: DataTypes.JSON,
-    },
-  });
+    {
+      tableName: "listings",
+      freezeTableName: true,
+    }
+  );
 
   Listing.findByListingId = async (id) => {
     let listing = await Listing.findOne({
