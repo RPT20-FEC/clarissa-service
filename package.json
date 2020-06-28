@@ -10,6 +10,7 @@
   "scripts": {
     "build": "webpack --mode=production",
     "db:setup": "node server/database/seed.js",
+    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "dev:react": "webpack-dev-server --open",
     "start": "node server/index.js",
     "dev:start": "nodemon --exec babel-node server/index.js",

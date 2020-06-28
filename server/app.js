@@ -4,7 +4,7 @@ const path = require("path");
 const compression = require("compression");
 const expressStaticGzip = require("express-static-gzip");
 const bodyParser = require("body-parser");
-const db = require("../db/models/index.js");
+const { Listing, Asset } = require("../db/models/index.js");
 
 require("dotenv").config();
 app.use(compression());
@@ -31,14 +31,34 @@ app.use(bodyParser.json());
 // all listings routes
 
 app.get("/listings", (req, res) => {
-  db.Listing.findAll()
+  Listing.findAll()
     .then((listings) => {
-      console.log(listings);
       return res.status(200).json({ listings });
     })
     .catch((err) => {
       console.log(err);
     });
+});
+
+app.get("/listings/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const listing = await Listing.findOne({
+      where: { id: id },
+      include: [
+        {
+          model: Asset,
+          as: "assets",
+        },
+      ],
+    });
+    if (listing) {
+      return res.status(200).json({ listing });
+    }
+    return res.status(404).send("User with the specified ID does not exists");
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
 });
 
 // app.get("/listings", async (req, res) => {

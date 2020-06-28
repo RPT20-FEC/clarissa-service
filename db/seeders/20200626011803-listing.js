@@ -12,8 +12,6 @@ module.exports = {
       [
         {
           name,
-          listingId,
-          assets,
           createdAt,
           updatedAt,
         },

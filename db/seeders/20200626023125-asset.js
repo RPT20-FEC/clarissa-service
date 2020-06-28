@@ -15,18 +15,21 @@ module.exports = {
         {
           url,
           description,
+          listingId: 1,
           createdAt,
           updatedAt,
         },
         {
           url,
           description,
+          listingId: 1,
           createdAt,
           updatedAt,
         },
         {
           url,
           description,
+          listingId: 1,
           createdAt,
           updatedAt,
         },

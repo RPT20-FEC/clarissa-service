@@ -4,9 +4,15 @@ module.exports = (sequelize, DataTypes) => {
     "Asset",
     {
       url: DataTypes.STRING,
-    },
-    {
       description: DataTypes.STRING,
+      listingId: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: "Listing",
+          key: "id",
+          as: "listingId",
+        },
+      },
     },
     {}
   );
@@ -14,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Asset.belongsTo(models.Listing, {
       foreignKey: "listingId",
+      onDelete: "CASCADE",
     });
   };
   return Asset;
