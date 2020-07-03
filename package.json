@@ -25,6 +25,7 @@
     "express-static-gzip": "^2.0.6",
     "lorem-ipsum": "^2.0.3",
     "mongoose": "^5.9.9",
+    "nano": "^8.2.2",
     "node-fetch": "^2.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
