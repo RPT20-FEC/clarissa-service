@@ -25,6 +25,7 @@
     "express-static-gzip": "^2.0.6",
     "lorem-ipsum": "^2.0.3",
     "mongoose": "^5.9.9",
+    "newrelic": "^6.11.0",
     "node-fetch": "^2.6.0",
     "pouchdb": "^7.2.1",
     "react": "^16.13.1",

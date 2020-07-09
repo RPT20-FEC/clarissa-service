@@ -6,6 +6,7 @@ const compression = require("compression");
 const expressStaticGzip = require("express-static-gzip");
 const bodyParser = require("body-parser");
 var PouchDB = require("pouchdb");
+const nr = require("newrelic");
 
 var db = new PouchDB("http://admin:master@localhost:5984/sdc_listings");
 
