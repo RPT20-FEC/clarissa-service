@@ -5,6 +5,7 @@ const path = require("path");
 const compression = require("compression");
 const expressStaticGzip = require("express-static-gzip");
 const bodyParser = require("body-parser");
+const nr = require("newrelic");
 // var nano = require("nano")("http://localhost:5984");
 var nano = require("nano")("http://admin:master@127.0.0.1:5984");
 const db = nano.db.use("sdc_listings");
