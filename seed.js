@@ -117,30 +117,27 @@ const randomPropertyAssets = function () {
 
 const insertSeedData = function () {
   const seederData = [];
+  var file = 1;
+  let listingId = 1;
 
+  // for (var x = 0; x < 7; x++) {
   for (var i = 1; i < 100000; i++) {
     var singleProp = {
-      listingId: 1000 + i,
+      listingId: listingId++,
       assets: randomPropertyAssets(),
     };
 
     seederData.push(singleProp);
   }
 
-  return seederData;
-};
+  const data = seederData;
 
-const collectData = function () {
-  const data = insertSeedData();
   (async () => {
     const csv = new ObjectsToCsv(data);
-
-    // Save to file:
-    await csv.toDisk(`./listings-1.csv`);
-
-    // Return the CSV file as string:
-    console.log(await `seed done`);
+    await csv.toDisk(`./listings-${file++}.csv`);
+    console.log(await `seed ${file++} done`);
   })();
+  // }
 };
 
-collectData();
+insertSeedData();
