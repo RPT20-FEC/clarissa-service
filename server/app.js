@@ -6,6 +6,7 @@ const compression = require("compression");
 const expressStaticGzip = require("express-static-gzip");
 const bodyParser = require("body-parser");
 var PouchDB = require("pouchdb");
+PouchDB.plugin(require('pouchdb-find'));
 const nr = require("newrelic");
 
 var db = new PouchDB("http://admin:master@localhost:5984/sdc_listings");
@@ -53,14 +54,18 @@ app.get("/listings", (req, res) => {
 });
 
 app.get("/listings/:id", (req, res) => {
-  const listingId = req.params.id;
-  db.get("listingId")
-    .then(function (doc) {
-      res.json(listing);
-    })
-    .catch(function (err) {
-      new Error(err);
-    });
+  db.find({
+    selector: {
+      listingId: {$eq: req.params.id}
+    }
+  })
+  .then(function (doc) {
+    res.json(doc);
+    res.end()
+  })
+  .catch(function (err) {
+    console.log(err)
+  });
 });
 
 // app.post("/listings", (req, res) => {
