@@ -26,3 +26,6 @@ dist/
 
 # Seed data
 seedData.csv
+
+# New Relic data
+newrelic.js

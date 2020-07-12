@@ -1,19 +1,12 @@
 const express = require("express");
-const Listing = require("../database/Listing");
 const app = express();
 const path = require("path");
 const compression = require("compression");
 const expressStaticGzip = require("express-static-gzip");
 const bodyParser = require("body-parser");
 var PouchDB = require("pouchdb");
-PouchDB.plugin(require('pouchdb-find'));
+PouchDB.plugin(require("pouchdb-find"));
 const nr = require("newrelic");
-
-var db = new PouchDB("http://admin:master@localhost:5984/sdc_listings");
-
-db.info().then(function (info) {
-  console.log(info);
-});
 
 app.use(compression());
 
@@ -36,6 +29,14 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// Pouch db setup
+
+var db = new PouchDB("http://admin:master@localhost:5984/sdc_listings");
+
+db.info().then(function (info) {
+  console.log(info);
+});
+
 // all listings routes
 
 app.get("/listings", (req, res) => {
@@ -54,19 +55,26 @@ app.get("/listings", (req, res) => {
 });
 
 app.get("/listings/:id", (req, res) => {
-  db.find({
-    selector: {
-      listingId: {$eq: req.params.id}
-    }
-  })
-  .then(function (doc) {
-    res.json(doc);
-    res.end()
-  })
-  .catch(function (err) {
-    console.log(err)
+  db.createIndex({
+    index: { fields: ["listingId"] },
+  }).then(function (data) {
+    console.log("data", data);
+    return db
+      .find({
+        selector: { listingId: req.params.id },
+      })
+      .then(function (doc) {
+        console.log("doc", doc.docs[0].assets[0]);
+        res.json(doc.docs[0].assets[0]);
+        res.end();
+      })
+      .catch(function (err) {
+        console.log("err", err);
+      });
   });
 });
+
+// OLD MONGODB QUERIES
 
 // app.post("/listings", (req, res) => {
 //   var newListing = new Listing(req.body);
