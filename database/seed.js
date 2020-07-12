@@ -2,7 +2,24 @@ const db = require("./index.js");
 const Listing = require("./Listing.js");
 const fs = require("fs");
 var csvWriter = require("csv-write-stream");
+
 // var writer = csvWriter();
+
+const propertyUrls = [
+  "https://images.unsplash.com/photo-1533443144047-ea8a81e83e68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=50&auto=compress",
+  "https://images.unsplash.com/photo-1511840636560-acee95b3a83f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=50&auto=compress",
+  "https://images.unsplash.com/photo-1582289545106-efecf907f21e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=50&auto=compress",
+  "https://images.unsplash.com/flagged/photo-1556438758-8d49568ce18e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=50&auto=compress",
+  "https://images.unsplash.com/flagged/photo-1556438758-1d61c8c65409?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=50&auto=compress",
+];
+
+const description = [
+  "Beach house with vintage vibes",
+  "Steps from the ocean",
+  "Bright and Airy",
+  "Toes in the sand",
+  "Modern interior",
+];
 
 const propertyAssets = [
   [
@@ -142,10 +159,11 @@ class Writer {
 
   const writer = new Writer("seedData.csv");
 
-  for (let i = 0; i < 10000000; i++) {
+  for (let i = 0; i < 100000; i++) {
     const res = writer.write({
       listingId: i,
-      assets: randomPropertyAssets(),
+      urls: propertyUrls,
+      descriptions: description,
     });
 
     if (res instanceof Promise) {
