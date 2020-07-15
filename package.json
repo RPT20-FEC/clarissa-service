@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "webpack --mode=production",
-    "db:setup": "node database/seed.js",
+    "db:setup": "node seed.js",
     "dev:react": "webpack-dev-server --open",
     "start": "node server/index.js",
     "dev:start": "nodemon --inspect server/index.js",
