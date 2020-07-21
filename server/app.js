@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 
 // Pouch db setup
 
-var db = new PouchDB("http://admin:master@localhost:5984/sdc_listings");
+var db = new PouchDB("http://admin:master@3.235.245.127:5984/sdc_listings");
 
 db.info().then(function (info) {
   console.log(info);
