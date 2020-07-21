@@ -23,3 +23,9 @@ coverage
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 dist/
+
+# Seed data
+seedData.csv
+
+# New Relic data
+newrelic.js
