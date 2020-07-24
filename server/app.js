@@ -39,6 +39,10 @@ db.info().then(function (info) {
 
 // get routes
 
+app.get("/:id", (req, res) => {
+  res.sendFile(path.join(__dirname + "/../public/index.html"));
+});
+
 app.get("/listings", (req, res) => {
   db.allDocs({
     include_docs: true,

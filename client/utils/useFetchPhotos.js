@@ -11,9 +11,7 @@ const useFetchPhotos = (id) => {
 
       try {
         const response = await axios.get(
-          `http://18.234.43.53/listings/${id}`
-          // `http://localhost:5000/listings/${id}`
-          // `http://18.144.125.169/listings/${id}/photos`
+          `/listings/${id}`
         );
         if (response.status === 200) {
           setPhotos(response.data);
